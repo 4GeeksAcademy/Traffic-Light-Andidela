@@ -1,25 +1,27 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState } from "react";
 
 //create your first component
 const Home = () => {
+	const [color, setColor] = useState(" ");
+	console.log(color);
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<>
+			<span className="traffic-light" >
+				<div className="text-center" style={{ marginTop: 15 }}>
+					<div onClick={() => setColor("red")}>
+						<button type="button" style={{ width: 60, height: 60 }} className={"btn btn-danger rounded-circle" + " " + (color === "red" ? "sombra" : " ")}></button>
+					</div>
+					<div onClick={() => setColor("yellow")}>
+						<button type="button" style={{ width: 60, height: 60, marginTop: 5}} className={"btn btn-warning rounded-circle" + " " + (color === "yellow" ? "sombra" : " ")}></button>
+					</div>
+					<div onClick={() => setColor("green")}>
+						<button type="button" style={{ width: 60, height: 60, marginTop: 5 }} className={"btn btn-success rounded-circle" + " " + (color === "green" ? "sombra" : " ")}></button>
+					</div>
+				</div>
+			</span>
+			
+		</>
 	);
 };
 
